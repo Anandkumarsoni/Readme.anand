@@ -16,4 +16,4 @@ CSS: For styling and animations.
 JavaScript: For functionality, including random wish generation.
 This project not only celebrates the spirit of Diwali but also serves as a fun way to engage users with festive greetings. It's a great example of how web technologies can be used to create interactive and joyful experiences.
 
-Mohit Rajak ..
+Anand kumar..
