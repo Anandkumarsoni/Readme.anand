@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Age Calculator </title>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+  body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  }
+  .container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 2rem 3rem;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+  }
+  h1 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+  label {
+    display: block;
+    text-align: left;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    font-size: 1rem;
+  }
+  input[type="date"] {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+    outline: none;
+    box-sizing: border-box;
+  }
+  button {
+    background-color: #5a39ff;
+    border: none;
+    padding: 12px 20px;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  button:hover {
+    background-color: #30aae7;
+  }
+  .result {
+    margin-top: 1.5rem;
+    background: rgba(0,0,0,0.2);
+    padding: 1rem;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    min-height: 2.5rem;
+  }
+  .error {
+    color: #ff6b6b;
+    margin-top: 0.6rem;
+    font-weight: 600;
+  }
+  footer {
+    margin-top: 2.5rem;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+  }
+  @media (max-width: 440px) {
+    .container {
+      padding: 1.5rem 2rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container" role="main">
+    <h1>Age Calculator</h1>
+    <label for="birthdate">Enter your birthdate:</label>
+    <input type="date" id="birthdate" name="birthdate" max="" aria-describedby="error-msg" />
+    <button id="calculateBtn">Calculate Age</button>
+    <div id="error-msg" class="error" aria-live="polite"></div>
+    <div class="result" id="result" aria-live="polite"></div>
+    <footer>© 2024 Age Calculator</footer>
+  </div>
+
+<script>
+  // Set max date on input to today to prevent future dates
+  const birthdateInput = document.getElementById('birthdate');
+  const today = new Date().toISOString().split('T')[0];
+  birthdateInput.setAttribute('max', today);
+
+  const calculateBtn = document.getElementById('calculateBtn');
+  const resultDiv = document.getElementById('result');
+  const errorMsg = document.getElementById('error-msg');
+
+  function calculateAge(birthdate) {
+    const today = new Date();
+    const birth = new Date(birthdate);
+
+    if (birth > today) return null;
+
+    let years = today.getFullYear() - birth.getFullYear();
+    let months = today.getMonth() - birth.getMonth();
+    let days = today.getDate() - birth.getDate();
+
+    if (days < 0) {
+      months--;
+      // Get days count of the previous month
+      const prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+      days += prevMonth.getDate();
+    }
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+
+    return { years, months, days };
+  }
+
+  calculateBtn.addEventListener('click', () => {
+    resultDiv.textContent = '';
+    errorMsg.textContent = '';
+
+    const birthdate = birthdateInput.value;
+    if (!birthdate) {
+      errorMsg.textContent = 'Please select your birthdate.';
+      return;
+    }
+
+    const age = calculateAge(birthdate);
+    if (!age) {
+      errorMsg.textContent = 'Birthdate cannot be in the future.';
+      return;
+    }
+
+    resultDiv.textContent = `You are ${age.years} year${age.years !== 1 ? 's' : ''}, ${age.months} month${age.months !== 1 ? 's' : ''}, and ${age.days} day${age.days !== 1 ? 's' : ''} old.`;
+  });
+</script>
+</body>
+</html>
+

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Maruti Paints and Chemicals</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f6f9fc;
+    color: #333;
+  }
+  header {
+    background: #004aad;
+    color: white;
+    padding: 20px 40px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgb(0 74 173 / 0.3);
+  }
+  header h1 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+  }
+  nav {
+    margin-top: 10px;
+  }
+  nav a {
+    color: #cbdcf8;
+    text-decoration: none;
+    padding: 8px 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  nav a:hover {
+    color: #ffe600;
+  }
+  main {
+    max-width: 1000px;
+    margin: 30px auto 60px;
+    padding: 0 20px;
+  }
+  section {
+    margin-bottom: 50px;
+  }
+  h2 {
+    font-weight: 600;
+    font-size: 2rem;
+    border-bottom: 3px solid #004aad;
+    padding-bottom: 8px;
+    margin-bottom: 25px;
+    color: #004aad;
+  }
+  .intro p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+  }
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 25px;
+  }
+  .product-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgb(0 0 0 / 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgb(0 0 0 / 0.15);
+  }
+  .product-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 4px solid #004aad;
+  }
+  .product-content {
+    padding: 15px 20px;
+  }
+  .product-content h3 {
+    margin: 0 0 10px;
+    font-weight: 600;
+    color: #222;
+  }
+  .product-content p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.4;
+  }
+  .contact {
+    background: #004aad;
+    color: white;
+    padding: 30px 20px;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    box-shadow: 0 6px 15px rgb(0 74 173 / 0.3);
+  }
+  .contact h3 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    margin-top: 12px;
+  }
+  input, textarea {
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+    font-family: inherit;
+  }
+  textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  button {
+    margin-top: 20px;
+    background: #ffe600;
+    border: none;
+    padding: 12px 18px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #004aad;
+    transition: background 0.3s ease;
+  }
+  button:hover {
+    background: #ffd600cc;
+  }
+  footer {
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 15px 20px;
+    color: #777;
+    border-top: 1px solid #ddd;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Maruti Paints and Chemicals</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+<main>
+  <section id="about" class="intro">
+    <h2>About Us</h2>
+    <p>Welcome to Maruti Paints and Chemicals, your trusted partner for high-quality paints and chemical solutions. We specialize in supplying premium industrial and architectural paints, coatings, and chemicals designed to meet all your needs. Our commitment is to deliver excellence with innovative products and friendly service.</p>
+  </section>
+
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="products">
+      <article class="product-card">
+        <img class="product-image" src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?auto=format&fit=crop&w=600&q=80" alt="Industrial Paints" />
+        <div class="product-content">
+          <h3>Industrial Paints</h3>
+          <p>Durable paints designed for industrial applications with excellent resistance to wear and corrosion.</p>
+        </div>
+      </article>
+      <article class="product-card">
+        <img class="product-image" src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=600&q=80" alt="Chemical Coatings" />
+        <div class="product-content">
+          <h3>Chemical Coatings</h3>
+          <p>Advanced chemical coatings that protect surfaces from harsh environments and enhance longevity.</p>
+        </div>
+      </article>
+      <article class="product-card">
+        <img class="product-image" src="https://images.unsplash.com/photo-1506719040637-58e0e795e866?auto=format&fit=crop&w=600&q=80" alt="Architectural Paints" />
+        <div class="product-content">
+          <h3>Architectural Paints</h3>
+          <p>Vibrant and lasting paints tailored for residential and commercial buildings with a beautiful finish.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h3>Contact Us</h3>
+    <form id="contactForm">
+      <label for="name">Name</label>
+      <input type="text" id="name" required placeholder="Your full name" />
+      <label for="email">Email</label>
+      <input type="email" id="email" required placeholder="your.email@example.com" />
+      <label for="message">Message</label>
+      <textarea id="message" required placeholder="Write your message here..."></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+</main>
+<footer>
+  &copy; 2025 Maruti Paints and Chemicals. All rights reserved.
+</footer>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const name = this.name.value.trim();
+    const email = this.email.value.trim();
+    const message = this.message.value.trim();
+    if (name && email && message) {
+      alert(`Thank you, ${name}! Your message has been sent.`);
+      this.reset();
+    } else {
+      alert('Please fill in all fields before sending.');
+    }
+  });
+</script>
+</body>
+</html>
+
